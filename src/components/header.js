@@ -5,7 +5,7 @@ import './header.css';
 export default function Header(props) {
     return(
 			<header>
-				<h1 className='center'>MotivATR</h1>
+				<h1  className='center'>MotivATR</h1>
 			</header>
     )
 }
