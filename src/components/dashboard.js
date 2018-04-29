@@ -8,6 +8,7 @@ export default function Dashbaord(props) {
   return(
     <div>
 			<Header />
+      <IntroSection />
       <SideNav />
     </div>
   )
