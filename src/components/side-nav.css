@@ -1,0 +1,30 @@
+.navBtn{
+	display: block;
+	width: 100%; 
+	max-width: 400px;
+	margin: auto;
+	margin-bottom: 15px;
+	margin-top: 15px;
+	padding: 20px;
+	-webkit-appearance: none;
+	outline: 0;
+	border: 0;
+	border-radius: 3px;
+	color: rgb(0, 0, 0);
+	transition: 0.3s;
+	font-size: 16px; 
+	font-weight: bold; 
+}
+
+.sidenav {
+	height: 100%;
+	z-index: 1; /* Stay on top */
+	top: 0; /* Stay at the top */
+	left: 0;
+	background-color: rgb(104, 104, 104); /* Black */
+	overflow-x: hidden; /* Disable horizontal scroll */
+	padding-top: 20px;
+	margin-bottom: 20px;
+	padding-bottom: 20px;
+	padding-left: 10px; 
+}
