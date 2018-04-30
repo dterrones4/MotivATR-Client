@@ -17,4 +17,5 @@ deploy:
   script: netlify deploy -s $NETLIFY_SITE_ID -t $NETLIFY_ACCESS_TOKEN -p ./build
   skip_cleanup: true
   on:
+    repo: https://github.com/dterrones4/MotivATR-Client
     branch: master
