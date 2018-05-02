@@ -6,11 +6,11 @@ import store from './store';
 
 import './index.css';
 
-import Dashboard from './components/dashboard';
+import App from './components/app';
 
 ReactDOM.render(
   <Provider store={store}>
-    <Dashboard />
+    <App />
   </Provider>,
   document.getElementById('root')
 );

@@ -4,6 +4,7 @@ import './intro-content.css';
 
 import RegistrationForm from './registration-form'; 
 import IntroFooter from './intro-footer';
+import LoginForm from './login-form'
 
 export default function IntroContent(props) {
 	return(
@@ -16,7 +17,7 @@ export default function IntroContent(props) {
 		  <p>Make a new account below to get started!</p>
 		  <p>If you would like to explore the App without making an account
 			you can sign in with<br/>Email: demo@gmail.com<br/>Password: demo123.</p>
-			<RegistrationForm />
+			<LoginForm />
 			<IntroFooter />
 		</div>
 	)

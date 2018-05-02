@@ -1,15 +1,15 @@
 import React from 'react';
 
 import Header from './header';
-import IntroSection from './intro-section';
-import SideNav from './side-nav.js'
+import SideNav from './dashboard/side-nav.js';
+import Graphs from './dashboard/graphs';
 
-export default function Dashbaord(props) {
+export default function Dashboard(props) {
   return(
     <div>
 			<Header />
-      <IntroSection />
       <SideNav />
+      <Graphs />
     </div>
   )
 }
