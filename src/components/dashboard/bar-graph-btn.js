@@ -1,18 +1,18 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
-import { populateBarGraph } from '../../actions';
+import { populateBarGraph } from '../../actions/actions';
 
 const TestData = {
-	labels: ["January", "February", "March", "April", "May", "June", "July"],
+	labels: ["Steps", "Calories",],
 	datasets: [
 		{
-			label: "My First dataset",
-			fillColor: "rgba(220,220,220,0.5)",
-			strokeColor: "rgba(220,220,220,0.8)",
-			highlightFill: "rgba(220,220,220,0.75)",
-			highlightStroke: "rgba(220,220,220,1)",
-			data: [65, 59, 80, 81, 56, 55, 40]
+			label: "Todays Progress",
+			fillColor: "#5959EC",
+			strokeColor: "white",
+			highlightFill: "#9A9AE9",
+			highlightStroke: "white",
+			data: [8000, 2346]
 		}
 	]
 };
@@ -22,15 +22,13 @@ export class BarGraphBtn extends React.Component {
 		super(props);
 		this.onClick = this.onClick.bind(this);
 	}
-
-	populateBarGraph(activityData, graphType){
-		this.props.dispatch(populateBarGraph(activityData, graphType));
-	}
 	
 	onClick(event) {
-		//Ajax call which will then call the populateBarGraph action.
-		console.log('onclick triggered')
-		this.populateBarGraph(TestData, 'bar');
+		if(this.props.demo === true){
+			this.props.dispatch(populateBarGraph(TestData, 'bar'));
+		}
+		//If Demo mode is off make call to FitBit for UserData.
+		this.props.dispatch(populateBarGraph(TestData, 'bar'));
 	}
 
 	render(){
@@ -40,6 +38,10 @@ export class BarGraphBtn extends React.Component {
 			View Todays Activity</button>
 		)
 	}
+}
+
+const mapStateToProps = state => {
+	demo: state.motivatr.demo
 }
 
 export default connect()(BarGraphBtn);

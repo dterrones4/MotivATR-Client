@@ -2,12 +2,13 @@ import React from 'react';
 import {reduxForm, Field, SubmissionError} from 'redux-form';
 
 import Input from './input';
+import {API_BASE_URL} from '../../config'
 
 import './registration-form.css';
 
 export class RegistrationForm extends React.Component {
 	onSubmit(values) {
-		return fetch('./api/users', {
+		return fetch(`${API_BASE_URL}/user`, {
 			method: 'POST',
 			body: JSON.stringify(values),
 			headers: {
@@ -33,7 +34,6 @@ export class RegistrationForm extends React.Component {
 				}
 				return;
 			})
-			.then(() => console.log('Submitted with values', values))
 			.catch(err => {
 				const {reason, message, location} = err;
 				if (reason === 'ValidationError') {

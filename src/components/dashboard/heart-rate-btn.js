@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
-import { populatePieGraph } from '../../actions';
+import { populatePieGraph } from '../../actions/actions';
 
 const TestData = [
 	{

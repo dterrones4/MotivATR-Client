@@ -1,4 +1,5 @@
 import React from 'react';
+import {connect} from 'react-redux';
 
 import './intro-content.css';
 
@@ -6,7 +7,7 @@ import RegistrationForm from './registration-form';
 import IntroFooter from './intro-footer';
 import LoginForm from './login-form'
 
-export default function IntroContent(props) {
+export function IntroContent(props) {
 	return(
 		<div id='introContent' className='col-4'>
 			<h2 id='introTitle'>Helping You Stay Motivated to Reach All Your Fitness Goals</h2>
@@ -22,3 +23,9 @@ export default function IntroContent(props) {
 		</div>
 	)
 }
+
+const mapStateToProps = state => ({
+	loggedIn: state.auth.currentUser !== null
+});
+
+export default connect(mapStateToProps)(IntroContent);

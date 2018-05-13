@@ -3,31 +3,36 @@ import {connect} from 'react-redux';
 
 import './graphs.css';
 
-let BarChart = require("react-chartjs").Bar;
-let PieChart = require("react-chartjs").Pie;
+import {Bar as BarChart, Pie as PieChart} from 'react-chartjs';
 
 export function Graphs(props){
 
 	if(props.graphType === 'bar'){
 		return(
-			<BarChart data={props.activityData} />
+			<div>
+				<div className='chartContainer col-8'>
+				<BarChart data={props.activityData} width='400' height='400'/>
+				</div>
+				<div className='chartContainer col-8'>
+					<BarChart data={props.activityData} width='400' height='400'/>
+				</div>
+			</div>
 		)
 	}
 	if(props.graphType === 'pie'){
-		//if props.demo === true then use fake data else return real data.
 		return(
-			<PieChart data={props.heartRateData} />
+			<div className='chartContainer col-8'>
+			<PieChart data={props.heartRateData} width='400' height='400'/>
+			</div>
 		)
 	}
-	return(
-		null
-	)
+	return null;
 }
 
 const mapStateToProps = state => ({
-	activityData: state.activityData,
-	graphType: state.graphType,
-	heartRateData: state.heartRateData
+	activityData: state.motivatr.activityData,
+	graphType: state.motivatr.graphType,
+	heartRateData: state.motivatr.heartRateData
 });
 
 export default connect(mapStateToProps)(Graphs);
