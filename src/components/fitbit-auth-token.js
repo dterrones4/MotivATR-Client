@@ -73,7 +73,10 @@ export class FitbitAuth extends React.Component {
 
 
 
-	render() {
+	render(props) {
+		if(this.props.fbAuthorized === true){
+			return <Redirect to='/dashboard' />
+		}
 		return(
 			<main>
 				<Header />
@@ -87,7 +90,8 @@ export class FitbitAuth extends React.Component {
 }
 
 const mapStateToProps = state => ({
-	currentUser: state.auth.currentUser
+	currentUser: state.auth.currentUser,
+	fbAuthorized: state.motivatr.fbAuthorized
 });
 
 export default connect(mapStateToProps)(FitbitAuth);

@@ -5,8 +5,10 @@
   "dependencies": {
     "chart.js": "^1.1.1",
     "jwt-decode": "^2.2.0",
+    "rc-time-picker": "^3.3.1",
     "react": "^16.3.2",
     "react-chartjs": "^1.2.0",
+    "react-chartjs-2": "^2.7.2",
     "react-dom": "^16.3.2",
     "react-redux": "^5.0.7",
     "react-router": "^4.2.0",

@@ -16,14 +16,13 @@ export function IntroSection(props) {
   return(
 		<div id='introSection' className='center row'>
 			<IntroContent />
-			<DemoBtn />
-			<RegistrationFrom />
 		</div>
 	)
 }
 
 const mapStateToProps = state => ({
 	loggedIn: state.auth.currentUser !== null
+
 });
 
 export default connect(mapStateToProps)(IntroSection)

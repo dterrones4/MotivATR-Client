@@ -1,0 +1,29 @@
+.input{
+	width: 100%;
+	padding: 20px;
+	margin-bottom: 10px;
+	-webkit-appearance: none;
+	border: 1px solid lightgrey;
+	outline: 0;
+	transition: 0.3s;
+	overflow: hidden;
+}
+.form{
+	padding: 10px; 
+	margin-top: 40px;
+	border-radius: 6px;
+	overflow: hidden;
+	opacity: 0;
+	transform: translate3d(0, 500px, 0);
+	animation: arrive 500ms ease-in-out 0.9s forwards;
+	width: 90%;
+	max-width: 340px;
+	margin: 10vh auto;
+	background-color: grey;
+}
+
+.form--no {
+	animation: NO 1s ease-in-out;
+	opacity: 1;
+	transform: translate3d(0, 0, 0);
+}

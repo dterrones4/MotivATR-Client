@@ -15,6 +15,26 @@
 	font-size: 16px; 
 	font-weight: bold; 
 }
+.navBtn:hover{
+  background:#fff;
+  color:#1AAB8A;
+}
+.navBtn:before,.navBtn:after{
+  content:'';
+  position:absolute;
+  top:0;
+  right:0;
+  height:2px;
+  width:0;
+  background: #1AAB8A;
+  transition:400ms ease all;
+}
+.navBtn:after{
+  right:inherit;
+  top:inherit;
+  left:0;
+  bottom:0;
+}
 
 .sidenav {
 	height: 100%;

@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import { setDemo } from '../../actions/actions';
+import './btn.css';
 
 export class DemoBtn extends React.Component {
 	constructor(props){
@@ -16,9 +17,9 @@ export class DemoBtn extends React.Component {
 
 	render(){
 	return(
-		<button className='btn'
+		<button className='btn center'
 		onClick={this.onClick}>
-		<Link to="/dashboard">Demo</Link></button>
+		<Link to="/dashboard" style={{ textDecoration: 'none', color: 'black' }}>Demo</Link></button>
 	)
 	}
 }
