@@ -1,53 +1,43 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
-import { populatePieGraph } from '../../actions/actions';
+import { populatePieGraph, getFitbitHeartRateData } from '../../actions/actions';
 
-const TestData = [
-	{
-		value: 300,
-		color:"#F7464A",
-		highlight: "#FF5A5E",
-		label: "Red"
-	},
-	{
-		value: 50,
-		color: "#46BFBD",
-		highlight: "#5AD3D1",
-		label: "Green"
-	},
-	{
-		value: 100,
-		color: "#FDB45C",
-		highlight: "#FFC870",
-		label: "Yellow"
-	}
-]
-
+const TestData = {
+	sendentaryMinutes: 320,
+	lightlyActiveMinutes: 120,
+	fairlyActiveMinutes: 60,
+	veryActiveMinutes: 30
+}
+const TestGoals ={
+	distance: 5,
+	elevation: 20,
+	floors: 10,
+	steps: 10000,
+	calories: 4000
+}
 
 export class HeartRateBtn extends React.Component {
-	constructor(props){
-		super(props);
-		this.onClick = this.onClick.bind(this);
+onClick(props){
+	if(this.props.demo === true){
+		return this.props.dispatch(populatePieGraph(TestData, TestGoals, 'pie'));
 	}
 
-	populatePieGraph(heartRateData, graphType){
-		this.props.dispatch(populatePieGraph(heartRateData, graphType));
-	}
-	
-	onClick(event) {
-		//Ajax call which will then call the populateBarGraph action.
-		console.log('onclick triggered')
-		this.populatePieGraph(TestData, 'pie');
-	}
+	return this.props.dispatch(getFitbitHeartRateData(this.props.currentUser.id));
+}
 
 	render(){
 		return(
 			<button id='heartRate' className='navBtn'
-			onClick={this.onClick}>
+			onClick={() => this.onClick()}>
 			View Todays Heart Rate Breakdown</button>
 		)
 	}
 }
 
-export default connect()(HeartRateBtn);
+const mapStateToProps = state => ({
+	demo: state.motivatr.demo,
+	currentUser: state.auth.currentUser
+})
+
+export default connect(mapStateToProps)(HeartRateBtn);

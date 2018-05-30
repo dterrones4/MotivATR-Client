@@ -1,17 +1,17 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
-import { populateBarGraph, getFitbitActivityData } from '../../actions/actions';
+import { populateGoalStatusGraph, getFitbitGoalsData } from '../../actions/actions';
 
 const TestData =  {
-	distance: 25,
-	elevation: 20,
-	floors: 15,
+	distance: 3,
+	elevation: 18,
+	floors: 7,
 	steps: 8000,
 	calories: 3000
 }
 
-const TestGoals = {
+const TestGoalsData =  {
 	distance: 5,
 	elevation: 20,
 	floors: 10,
@@ -19,20 +19,20 @@ const TestGoals = {
 	calories: 4000
 }
 
-export class BarGraphBtn extends React.Component {
+export class GoalStatusBtn extends React.Component {
 	onClick(props) {
 		if(this.props.demo === true){
-			return this.props.dispatch(populateBarGraph(TestData, TestGoals, 'bar'));
+			return this.props.dispatch(populateGoalStatusGraph(TestData, TestGoalsData, 'goals'));
 		}
 		//If Demo mode is off make call to FitBit for UserData.
-		return this.props.dispatch(getFitbitActivityData(this.props.currentUser.id));
+		return this.props.dispatch(getFitbitGoalsData(this.props.currentUser.id));
 	}
 
 	render(){
 		return(
 			<button id='barGraph' className='navBtn'
 			onClick={() => this.onClick()}>
-			View Todays Activity</button>
+			View Todays Goal Progress</button>
 		)
 	}
 }
@@ -42,4 +42,4 @@ const mapStateToProps = state => ({
 	currentUser: state.auth.currentUser
 })
 
-export default connect(mapStateToProps)(BarGraphBtn);
+export default connect(mapStateToProps)(GoalStatusBtn);
