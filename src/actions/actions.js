@@ -60,7 +60,7 @@ export const storeFitbitTokens = (data) => (dispatch) => {
 			})
 	);
 };
-
+ 
 export const registerUser = user => dispatch => {
 	return fetch(`${API_BASE_URL}/user`, {
 			method: 'POST',
