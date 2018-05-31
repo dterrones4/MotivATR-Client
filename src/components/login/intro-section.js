@@ -4,8 +4,6 @@ import {Redirect} from 'react-router-dom';
 
 import './intro-section.css';
 import IntroContent from './intro-content';
-import DemoBtn from './demo-btn';
-import RegistrationFrom from './registration-form';
 
 export function IntroSection(props) {
 	//if we are logged in redirect straight to user's dashboard

@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 
 import Header from './header';
 import './fitbit-auth.css';
-import {Link, Redirect} from 'react-router-dom';
+import {Redirect} from 'react-router-dom';
 import {storeFitbitTokens} from '../actions/actions';
 
 export class FitbitAuth extends React.Component {
@@ -28,6 +28,7 @@ export class FitbitAuth extends React.Component {
 
 				// in case params look like: list[]=thing1&list[]=thing2
 				var paramNum = undefined;
+				// eslint-disable-next-line
 				var paramName = a[0].replace(/\[\d*\]/, function(v) {
 						paramNum = v.slice(1,-1);
 						return '';
