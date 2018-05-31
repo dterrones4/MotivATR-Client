@@ -3,6 +3,8 @@ import {reduxForm, Field, focus} from 'redux-form';
 
 import Input from './input';
 import {login} from '../../actions/auth';
+import {required, nonEmpty} from '../../validators';
+
 
 import './login-form.css';
 import './btn.css';
@@ -25,8 +27,10 @@ export class LoginForm extends React.Component {
 			<form id='loginForm' className='form center'
 				onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
 				{error}
-				<Field component={Input} className='' name='email' type='email' id='email' label ='Email' />
-				<Field component={Input} className='' name='password' type='password' id='password' label ='Password' />
+				<Field component={Input} className='' name='email' type='email' id='email' label ='Email' 
+					 validate={[required, nonEmpty]} />
+				<Field component={Input} className='' name='password' type='password' id='password' label ='Password' 
+					 validate={[required, nonEmpty]} />
 				<button type='submit' id="login-button"className='btn'>Log in</button>
 			</form>
 		)

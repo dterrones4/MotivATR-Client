@@ -1,5 +1,6 @@
 import {API_BASE_URL} from '../config';
 import {normalizeResponseErrors} from './utils';
+import {SubmissionError} from 'redux-form';
 
 export const POPULATE_BAR_GRAPH = 'POPULATE_BAR_GRAPH';
 export const populateBarGraph = (activityData, goals, graphType) => ({
@@ -58,6 +59,29 @@ export const storeFitbitTokens = (data) => (dispatch) => {
 					console.log(err);
 			})
 	);
+};
+
+export const registerUser = user => dispatch => {
+	return fetch(`${API_BASE_URL}/user`, {
+			method: 'POST',
+			headers: {
+					'content-type': 'application/json'
+			},
+			body: JSON.stringify(user)
+	})
+			.then(res => normalizeResponseErrors(res))
+			.then(res => res.json())
+			.catch(err => {
+					const {reason, message, location} = err;
+					if (reason === 'ValidationError') {
+							// Convert ValidationErrors into SubmissionErrors for Redux Form
+							return Promise.reject(
+									new SubmissionError({
+											[location]: message
+									})
+							);
+					}
+			});
 };
 
 export const getFitbitActivityData = (id) => (dispatch) => {

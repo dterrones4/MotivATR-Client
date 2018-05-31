@@ -1,65 +1,38 @@
 import React from 'react';
-import {reduxForm, Field, SubmissionError} from 'redux-form';
+import {reduxForm, Field} from 'redux-form';
 
 import Input from './input';
-import {API_BASE_URL} from '../../config'
-
+import {registerUser} from '../../actions/actions';
+import {login} from '../../actions/auth';
+import {required, nonEmpty, matches, length, isTrimmed} from '../../validators';
 import './registration-form.css';
+
+const passwordLength = length({min: 10, max: 72});
+const phoneLength = length(10);
+const matchesPassword = matches('password');
 
 export class RegistrationForm extends React.Component {
 	onSubmit(values) {
-		return fetch(`${API_BASE_URL}/user`, {
-			method: 'POST',
-			body: JSON.stringify(values),
-			headers: {
-				'Content-Type': 'application/json'
-			}
-		})
-			.then(res => {
-				if(!res.ok){
-					if (
-						res.headers.has('content-type') &&
-						res.headers
-								.get('content-type')
-								.startsWith('application/json')
-					) {
-						// It's a nice JSON error returned by us, so decode it
-						return res.json().then(err => Promise.reject(err));
-					}
-					// It's a less informative error returned by express
-					return Promise.reject({
-						code: res.status,
-						message: res.statusText
-					});
-				}
-				return;
-			})
-			.catch(err => {
-				const {reason, message, location} = err;
-				if (reason === 'ValidationError') {
-						// Convert ValidationErrors into SubmissionErrors for Redux Form
-						return Promise.reject(
-								new SubmissionError({
-										[location]: message
-								})
-						);
-				}
-				return Promise.reject(
-						new SubmissionError({
-								_error: 'Error submitting message'
-						})
-				);
-			});
+		const {email, password, phoneNumber} = values;
+		const loginValues = {email, password};
+		const user = {email, password, phoneNumber};
+		return this.props
+			.dispatch(registerUser(user))
+			.then(() => this.props.dispatch(login(loginValues)));
 	}
 
 	render(){
 		return(
 			<form id='registrationForm' className='form center'
 				onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
-			<Field component={Input} name ='email' type = 'email' id='email' label ='Email' />
-			<Field component={Input} name ='phoneNumber' type = 'text' id='phoneNumber' label ='Phone Number' />
-			<Field component={Input} name ='password' type = 'password' id='password' label ='Password' />
-			<Field component={Input} name ='confirm_password' type = 'password' id='confirm_password' label ='Confirm Password' />
+			<Field component={Input} name ='email' type = 'email' id='email' label ='Email'
+				validate ={[required, nonEmpty, isTrimmed]} />
+			<Field component={Input} name ='phoneNumber' type = 'text' id='phoneNumber' label ='Phone Number' 
+				validate={[required, phoneLength, isTrimmed]}/>
+			<Field component={Input} name ='password' type = 'password' id='password' label ='Password' 
+				validate={[required, passwordLength, isTrimmed]}/>
+			<Field component={Input} name ='confirm_password' type = 'password' id='confirm_password' label ='Confirm Password' 
+				validate={[required, nonEmpty, matchesPassword]}/>
 			<button type='submit' className='btn'>Get Started</button>
 			</form>
 		)
