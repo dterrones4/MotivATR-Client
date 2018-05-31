@@ -1,6 +1,6 @@
 # MotivATR-Client
 
-Link to Live App: https://motivatr1.herokuapp.com/
+Link to Live App: https://motivatr.netlify.com/
 
 App Overview
 ============
