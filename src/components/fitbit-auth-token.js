@@ -7,7 +7,7 @@ import {Redirect} from 'react-router-dom';
 import {storeFitbitTokens} from '../actions/actions';
 
 export class FitbitAuth extends React.Component {
-	componentDidMount(props){
+	componentDidMount(){
 		let queryString = window.location.search.slice(1); //req.query
 
 		// we'll store the parameters here
