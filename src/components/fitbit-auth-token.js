@@ -64,6 +64,7 @@ export class FitbitAuth extends React.Component {
 				}
 			}
 		}
+		console.log(this.props);
 		const data = {
 			code: obj.code,
 			token: localStorage.getItem('authToken'),
