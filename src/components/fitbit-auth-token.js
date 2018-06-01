@@ -7,7 +7,7 @@ import {Redirect} from 'react-router-dom';
 import {storeFitbitTokens} from '../actions/actions';
 
 export class FitbitAuth extends React.Component {
-	onClick(props){
+	componentDidMount(props){
 		let queryString = window.location.search.slice(1); //req.query
 
 		// we'll store the parameters here
@@ -83,12 +83,13 @@ export class FitbitAuth extends React.Component {
 				<Header />
 				<div id='fitbitAuth' className='center row'>
 				Congrats you're all set! Head to the dashboard to get started.
-				<button onClick={() => this.onClick()}>Dashboard</button>
 				</div>
 			</main>
 		)
 	}
 }
+
+//<button onClick={() => this.onClick()}>Dashboard</button>
 
 const mapStateToProps = state => ({
 	currentUser: state.auth.currentUser,
