@@ -16,7 +16,7 @@ const store = createStore(
 		auth: authReducer,
 		protectedData: protectedDataReducer
 	}),
-	compose(middleware, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
+	compose(middleware)  //window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
 );
 
 //store authToken from localStrage if it exists
