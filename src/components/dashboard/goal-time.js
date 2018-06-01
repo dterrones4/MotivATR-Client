@@ -1,5 +1,4 @@
 import React from 'react';
-import './drop-down.css';
 
 import 'rc-time-picker/assets/index.css';
 import moment from 'moment';

@@ -5,7 +5,7 @@ import { populateGoalStatusGraph, getFitbitGoalsData } from '../../actions/actio
 
 const TestData =  {
 	distance: 3,
-	elevation: 18,
+	activeMinutes: 20,
 	floors: 7,
 	steps: 8000,
 	calories: 3000
@@ -13,7 +13,7 @@ const TestData =  {
 
 const TestGoalsData =  {
 	distance: 5,
-	elevation: 20,
+	activeMinutes: 30,
 	floors: 10,
 	steps: 10000,
 	calories: 4000

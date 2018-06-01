@@ -1,6 +1,5 @@
 import React from 'react';
 import {reduxForm, Field} from 'redux-form';
-import './drop-down.css';
 
 import Input from '../login/input';
 
