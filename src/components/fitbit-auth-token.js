@@ -6,8 +6,8 @@ import './fitbit-auth.css';
 import {Redirect} from 'react-router-dom';
 import {storeFitbitTokens} from '../actions/actions';
 
-export class FitbitAuth extends React.Component {
-	componentDidMount(){
+class FitbitAuth extends React.Component {
+onClick(){
 		let queryString = window.location.search.slice(1); //req.query
 
 		// we'll store the parameters here
@@ -64,7 +64,7 @@ export class FitbitAuth extends React.Component {
 				}
 			}
 		}
-		console.log(this.props);
+
 		const data = {
 			code: obj.code,
 			token: localStorage.getItem('authToken'),
@@ -72,7 +72,6 @@ export class FitbitAuth extends React.Component {
 		};
 		return this.props.dispatch(storeFitbitTokens(data));
 	};
-
 
 
 	render(props) {
@@ -83,14 +82,12 @@ export class FitbitAuth extends React.Component {
 			<main>
 				<Header />
 				<div id='fitbitAuth' className='center row'>
-				Congrats you're all set! Head to the dashboard to get started.
+				Congrats you're all set! Head to the dashboard to get started. <button onClick={() => this.onClick()}>Dashboard</button>
 				</div>
 			</main>
 		)
 	}
 }
-
-//<button onClick={() => this.onClick()}>Dashboard</button>
 
 const mapStateToProps = state => ({
 	currentUser: state.auth.currentUser,
