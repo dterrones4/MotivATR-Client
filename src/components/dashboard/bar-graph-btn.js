@@ -5,7 +5,7 @@ import { populateBarGraph, getFitbitActivityData } from '../../actions/actions';
 
 const TestData =  {
 	distance: 25,
-	elevation: 20,
+	activeMinutes: 20,
 	floors: 15,
 	steps: 8000,
 	calories: 3000
@@ -13,7 +13,7 @@ const TestData =  {
 
 const TestGoals = {
 	distance: 5,
-	elevation: 20,
+	activeMinutes: 30,
 	floors: 10,
 	steps: 10000,
 	calories: 4000

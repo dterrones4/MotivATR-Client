@@ -27,21 +27,21 @@ export function GoalsGraph(props){
 			]
 		}
 		const data2 = {
-				labels: ["elevation(feet)", "distance(miles)", "floors"],
+				labels: ["Active Minutes", "distance(miles)", "floors"],
 				datasets: [
 					{
 						label: "Current Goal",
 						fillColor: ['#f1bb1b', '#f1bb1b', '#f1bb1b'],
 						strokeColor: "white",
 						highlightStroke: "white",
-						data: [props.goals.elevation, props.goals.distance, props.goals.floors]
+						data: [props.goals.activeMinutes, props.goals.distance, props.goals.floors]
 					},
 					{
 						label: "Todays Progress",
 						fillColor: ['#ff6b6b', '#ff6b6b', '#ff6b6b'],
 						strokeColor: "white",
 						highlightStroke: "white",
-						data: [props.activityData.elevation, props.activityData.distance, props.activityData.floors]
+						data: [props.activityData.activeMinutes, props.activityData.distance, props.activityData.floors]
 					}
 				]
 		}

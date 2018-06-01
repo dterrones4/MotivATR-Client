@@ -12,7 +12,7 @@ export class GoalsSection extends React.Component {
 					<ul>
 						<li>Steps: {this.props.goals.steps}</li>
 						<li>Calories: {this.props.goals.calories}</li>
-						<li>Elevation: {this.props.goals.elevation}</li>
+						<li>Active Minutes: {this.props.goals.activeMinutes}</li>
 						<li>Distance: {this.props.goals.distance}</li>
 						<li>Floors: {this.props.goals.floors}</li>
 					</ul>

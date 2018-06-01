@@ -22,7 +22,7 @@ export function Graphs(props){
 	}
 
 	const barGraphData2 = {
-		labels: ["elevation(feet)", "distance(Miles)", "floors"],
+		labels: ["Active Minutes", "distance(Miles)", "floors"],
 		datasets: [
 			{
 				label: "Todays Progress",
@@ -30,7 +30,7 @@ export function Graphs(props){
 				strokeColor: "white",
 				highlightFill: "#9A9AE9",
 				highlightStroke: "white",
-				data: [props.activityData.elevation, props.activityData.distance, props.activityData.floors]
+				data: [props.activityData.activeMinutes, props.activityData.distance, props.activityData.floors]
 			}
 		]
 }
@@ -82,7 +82,7 @@ export function Graphs(props){
 			</div>
 		)
 	}
-	
+
 	return null;
 }
 
