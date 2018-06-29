@@ -18,7 +18,8 @@ export class DemoBtn extends React.Component {
 	render(){
 	return(
 		<button className='btn center'
-		onClick={this.onClick}>
+		onClick={this.onClick}
+		onTap={this.onClick}>
 		<Link to="/dashboard" style={{ textDecoration: 'none', color: 'black' }}>Demo</Link></button>
 	)
 	}
