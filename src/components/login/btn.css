@@ -9,9 +9,9 @@
   cursor:pointer;
   transition:800ms ease all;
 	outline:none;
-	border-radius: 10px;
+  border-radius: 10px;
+  cursor:'pointer'
 }
-
 
 .btn:hover{
   background:#fff;
